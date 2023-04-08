@@ -1,12 +1,11 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Footer from './pages/Footer'
 import Header from './components/header/Header'
 import Home  from './pages/home/Home'
-import Login from './pages/Login'
+import Login from './pages/login/Login'
 import { NotFound } from './pages/NotFound'
-import About from './pages/About'
-import Professionals from './pages/professional/Professionals'
+import Footer from './components/footer/Footer'
+import Blog from './pages/blog/Blog'
 
 const App = () => {
     return (
@@ -15,9 +14,10 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Home />}/>
                 <Route path="login" element={<Login />} />
-                <Route path="about" element={<About/>} />
-                <Route path="professionals/:id/*" element={<Professionals />} />
+                <Route path="procedures/:id" element={<Blog />} />
+                <Route path="professionals/:id" element={<Blog />} />
                 <Route path="*" element={<NotFound />} />
+
             </Routes>
             <Footer />
         </BrowserRouter>

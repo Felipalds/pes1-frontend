@@ -11,7 +11,7 @@ const LoginForm = () => {
         }
         console.log(body)
         try {
-            axios.post("http://localhost:3333/login", body).then(res => {
+            axios.post("http://localhost:3001/login", body).then(res => {
                 console.log(res)
             })
         } catch(e){
