@@ -6,6 +6,7 @@ import Login from './pages/login/Login'
 import { NotFound } from './pages/NotFound'
 import Footer from './components/footer/Footer'
 import Blog from './pages/blog/Blog'
+import { Admin } from './pages/admin/Admin'
 
 const App = () => {
     return (
@@ -16,6 +17,8 @@ const App = () => {
                 <Route path="login" element={<Login />} />
                 <Route path="procedures/:id" element={<Blog />} />
                 <Route path="professionals/:id" element={<Blog />} />
+                <Route path="admin" element={<Admin />} />
+
                 <Route path="*" element={<NotFound />} />
 
             </Routes>
