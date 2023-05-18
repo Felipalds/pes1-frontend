@@ -1,0 +1,23 @@
+#left-menu {
+    background-color: #344293;
+    margin-right: 87.5%;
+    padding-top: 12.5%;
+    padding-bottom: 100%;
+}
+
+.left-menu-btn {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: block;
+    text-align: center;
+    width: 95%;
+    height:2.2em;
+    margin: 2% 2.5%;
+    font-size:large;
+    line-height: 0;
+    background-color: #344293;
+    color: white;
+}
+
+.left-menu-btn:hover {
+    background-color: #D0165D;
+}

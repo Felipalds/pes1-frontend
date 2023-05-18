@@ -1,6 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { getProntuariesById } from "../../services/prontuaries/prontuary.service";
+import { prontuaryStyle, prontuaryHeaderStyle } from "./ProntuaryStyle";
+import './ProntuaryCss.css';
+
 
 async function get_prontuary() {
   const input_value = document.getElementById("useridField").value;
@@ -22,6 +25,19 @@ async function get_prontuary() {
   }
 }
 
+const LeftMenu = () => {
+  return (
+    <>
+      <div id="left-menu">
+        <button className="left-menu-btn">Horários</button>
+        <button className="left-menu-btn">Pacientes</button>
+        <button className="left-menu-btn">Profissionais</button>
+        <button className="left-menu-btn">Procedimentos</button>
+      </div>
+    </>
+  )
+}
+
 const ProntuaryTable = () => {
   const table_rows = []
   for (let i = 0; i < 15; i++) {
@@ -31,7 +47,7 @@ const ProntuaryTable = () => {
       <td></td>
     </tr>)
   }
-  return (<table id="prontuaryTable">
+  return (<table id="prontuaryTable" style={prontuaryStyle}>
     <tr>
       <th>ID</th>
       <th>Título do Prontuário</th>
@@ -45,10 +61,13 @@ const Prontuary = () => {
   const params = useParams();
   return (
     <>
+      <LeftMenu/>
       <h1>Prontuários (ID: {params.id})</h1>
-      <input id="useridField"></input>
+      <div><input id="useridField"></input><button onClick={get_prontuary} style={prontuaryHeaderStyle}>Buscar</button></div>
+      
+      
       {<ProntuaryTable />}
-      <button onClick={get_prontuary}>Buscar</button>
+      
     </>
   );
 };
