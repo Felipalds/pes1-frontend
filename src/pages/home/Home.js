@@ -1,48 +1,55 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { SHome } from './Styles'
+import axios from 'axios'
 
 const Home = () => {
+
+
+  const [ professionals, setProfessionals ] = React.useState([])
+  const [ procedures, setProcedures ] = React.useState([])
+
+
+  React.useEffect(() => {
+      if(professionals.length === 0)
+      axios
+      .get("http://localhost:3001/professionals")
+      .then(res => {
+          setProfessionals(res.data)
+      })
+
+      if(procedures.length === 0)
+      axios
+      .get("http://localhost:3001/procedures")
+      .then(res => {
+          setProcedures(res.data)
+      })
+      }
+      
+  )
 
   return (
     <SHome>
       <div>
-        <h1>Home Aqui, este componente será a imagem com os títulos</h1>
+        <h1>Unitá - Clínica Integrada</h1>
       </div>
       <div>
         <h2>Área das profissionais</h2>
         <ul>
-          <li><Link to="professionals/gustavo"> Gustavao do CSS </Link></li>
-          <li><Link to="professionals/zoz">Zoz do Pitoon </Link></li>
-          <li><Link to="professionais/suamae">Sua mãe</Link></li>
+          {professionals.map(p => {
+            return <li><Link to={`professionals/${p.slug}`}> {p.name}  </Link></li>
+          })}
         </ul>
-      </div>
-
-      <div>
-        <h2>área do sobre nós aqui!</h2>
       </div>
 
       <div>
         <h2>Veja os procedimentos: </h2>
         <ul>
-          <li><Link to="procedures/gustavo">Limpeza de Pele</Link></li>
-          <li><Link to="procedures/zoz">Estética capilar</Link></li>
+          {procedures.map(p => {
+            return <li><Link to={`procedures/${p.slug}`}> {p.name} </Link></li>
+          })}
         </ul>
       </div>
-
-      <div>
-        <h2>O que clientes dizem</h2>
-        <ul>
-          <li>UAU MUITO FODA</li>
-          <li>ÓTIMOS procedimentos</li>
-        </ul>
-      </div>
-
-      <div>
-        <h2>Localização!</h2>
-      </div>
-
-
     </SHome>
   )
 }
