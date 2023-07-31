@@ -1,8 +1,17 @@
 import React from 'react'
 import './Style.css'
 import axios from 'axios'
+import SignUpForm from '../signUp/SignUpForm'
 
 const LoginForm = () => {
+
+    const [email, setEmail] = React.useState('')
+    const [password, setPassword] = React.useState('') 
+
+
+    const redirectToNewPath = () => {
+        window.location.replace('/');
+    };
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -11,18 +20,24 @@ const LoginForm = () => {
         }
         console.log(body)
         try {
-            axios.get("http://localhost:3001/user/login", body).then(res => {
-                localStorage.setItem("logged", res.data)
+            axios.post("http://localhost:3001/user/login", body).then(res => {
+
+                if(res.data === false) {
+                    alert("Dados incorretos!")
+                }
+                else {
+                    localStorage.setItem("logged", res.data)
+                    {redirectToNewPath()}
+                }
             })
         } catch(e){
             console.error(e)
         }
     }
 
-    const [email, setEmail] = React.useState('')
-    const [password, setPassword] = React.useState('') 
         
     return (
+        <>
         <form onSubmit={handleSubmit}>
             <label htmlFor='email'>Digite seu e-mail</label>
             <input 
@@ -46,6 +61,7 @@ const LoginForm = () => {
 
             <button type="submit" disabled={email.length === 0 || password.length < 6}>Entrar</button>
         </form>
+        </>
     )
 }
 

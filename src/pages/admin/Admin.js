@@ -1,12 +1,10 @@
-import { Admin } from "../../components/admin/admin"
+import { Admin } from "../../components/admin/Admin"
 
-export const adminValidator = () => {
-
+export const AdminValidator = () => {
 
     if (localStorage.getItem("logged")) {
         return (<Admin />)
     } else {
-        <h1> N"ao logado!!!</h1>
+        return<h1> Nao logado!!!</h1>
     }
-   
 }
