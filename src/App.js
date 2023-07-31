@@ -8,7 +8,8 @@ import Footer from './components/footer/Footer'
 import BlogProcedures from './pages/blog/BlogProcedures'
 import BlogProfessionals from './pages/blog/BlogProfessionals'
 
-import { Admin } from './pages/admin/Admin'
+import { AdminValidator } from './pages/admin/Admin'
+import SignUpForm from './components/signUp/SignUpForm'
 
 const App = () => {
     return (
@@ -19,10 +20,9 @@ const App = () => {
                 <Route path="login" element={<Login />} />
                 <Route path="procedures/:slug" element={<BlogProcedures />} />
                 <Route path="professionals/:slug" element={<BlogProfessionals />} />
-                <Route path="admin" element={<Admin />} />
-
+                <Route path="admin" element={<dminValidator />} />
+                <Route path="signup" element={<SignUpForm />} />
                 <Route path="*" element={<NotFound />} />
-
             </Routes>
             <Footer />
         </BrowserRouter>
