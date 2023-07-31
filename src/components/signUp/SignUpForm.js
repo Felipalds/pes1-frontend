@@ -12,7 +12,12 @@ const SignUpForm = () => {
         console.log(body)
         try {
             axios.post("http://localhost:3001/user/create", body).then(res => {
-                console.log(res)
+                if(res.data === true) {
+                    alert("Cadastrado!")
+                    window.location.replace('/login');
+                } else {
+                    alert("Algum erro ocorreu.")
+                }
             })
         } catch(e){
             console.error(e)
