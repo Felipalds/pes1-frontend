@@ -56,7 +56,7 @@ const SignUpForm = () => {
             >
             </input>
 
-            <button type="submit" disabled={email.length === 0 || password.length < 6 || name.length === 0}>Entrar</button>
+            <button type="submit" disabled={email.length === 0 || password.length < 6 || name.length === 0}>Cadastrar</button>
         </form>
     )
 }
