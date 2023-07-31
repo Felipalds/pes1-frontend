@@ -10,6 +10,7 @@ import BlogProfessionals from './pages/blog/BlogProfessionals'
 
 import { AdminValidator } from './pages/adminValidator/AdminValidator'
 import SignUpForm from './components/signUp/SignUpForm'
+import SignOut from './components/signOut/SignOut'
 
 const App = () => {
     return (
@@ -22,6 +23,8 @@ const App = () => {
                 <Route path="professionals/:slug" element={<BlogProfessionals />} />
                 <Route path="admin" element={<AdminValidator />} />
                 <Route path="signup" element={<SignUpForm />} />
+                <Route path="signout" element={<SignOut />} />
+
                 <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
